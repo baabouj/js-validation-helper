@@ -1,0 +1,12 @@
+{
+  "name": "@baabouj/validator",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "Omar Baabouj <baabouj.dev@gmail.com>",
+  "license": "ISC"
+}
