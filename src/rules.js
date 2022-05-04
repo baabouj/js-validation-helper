@@ -17,10 +17,6 @@ export const rules = {
   length(value, length) {
     return value.length === parseInt(length);
   },
-  between(value, limits) {
-    const [min, max] = limits.split(",").map((limit) => parseInt(limit));
-    return value >= min && value <= max;
-  },
   min(value, min) {
     return value.length >= parseInt(min);
   },
@@ -68,10 +64,10 @@ export const rules = {
   },
 
   eq(value, other) {
-    return value === other;
+    return value == other;
   },
   neq(value, other) {
-    return value !== other;
+    return value != other;
   },
   gt(value, other) {
     return value > other;
@@ -84,6 +80,10 @@ export const rules = {
   },
   lte(value, other) {
     return value <= other;
+  },
+  between(value, limits) {
+    const [min, max] = limits.split(",");
+    return value >= min && value <= max;
   },
 
   contains(value, other) {
