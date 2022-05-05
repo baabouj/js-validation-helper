@@ -1,6 +1,6 @@
-# JavaScript Validator
+# JavaScript Validation Helper
 
-a validation helper to easily validate your data
+a javascript validation helper to easily validate your data
 
 ---
 
@@ -9,19 +9,19 @@ a validation helper to easily validate your data
 with `npm`
 
 ```bash
-npm install @baabouj/validator
+npm install js-validation-helper
 ```
 
 with `yarn`
 
 ```bash
-yarn add @baabouj/validator
+yarn add js-validation-helper
 ```
 
 with `pnpm`
 
 ```bash
-pnpm install @baabouj/validator
+pnpm install js-validation-helper
 ```
 
 # Usage
@@ -31,13 +31,13 @@ first let’s import the validator from the package :
 using ES modules
 
 ```js
-import validator from "@baabouj/validator";
+import validator from "js-validation-helper";
 ```
 
 using CommonJs
 
 ```js
-const validator = require("@baabouj/validator");
+const validator = require("js-validation-helper");
 ```
 
 Now that you imported it, the **validator** provides you with 2 function :
