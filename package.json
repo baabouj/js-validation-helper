@@ -1,7 +1,7 @@
 {
   "name": "validation-helper",
   "version": "0.0.1",
-  "description": "",
+  "description": "a validation helper to easily validate your data",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "type": "module",
@@ -19,5 +19,19 @@
     "jest": "^28.0.3",
     "rollup": "^2.71.1",
     "rollup-plugin-terser": "^7.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baabouj/validation-helper.git"
+  },
+  "keywords": [
+    "validation",
+    "validator",
+    "validation-helper",
+    "validate"
+  ],
+  "bugs": {
+    "url": "https://github.com/baabouj/validation-helper/issues"
+  },
+  "homepage": "https://github.com/baabouj/validation-helper#readme"
 }
