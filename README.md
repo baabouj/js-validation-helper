@@ -28,72 +28,161 @@ pnpm install @baabouj/validator
 
 using ES modules
 
-```jsx
+```js
 import validator from "@baabouj/validator";
 ```
 
 using CommonJs
 
-```jsx
+```js
 const validator = require("@baabouj/validator");
 ```
 
 # Usage
 
-You can validate an object with the `validate` **function
+You can validate an object with the `validate` function
 
-```jsx
+```js
 const validated = validator.validate(
   {
     name: "John Doe",
+    age: 22,
     email: "john.doe@gmail.com",
     password: "secret",
   },
   {
-    name: "required|string",
-    email: "required|email",
-    password: "required|min:6",
+    name: "required", // with single rule
+    age: "required|number|gt:18", // with multiple rules
+    email: ["required", "email"], // with an array of rules
+    password: ["required", ["min:8", "Password must be at least 8 characters"]], // with custom error message  
   }
 );
 ```
 
 or you can validate a single value with the `check` function
 
-```jsx
+```js
 const checked = validator.check(23, "number|gt:18");
 ```
 
 # Rules
 
-| Name | Role | Example |
-| --- | --- | --- |
-| required | checks if the value is not empty | required |
-| empty | checks if the value is empty | empty |
-| email | checks if the value is a valid email address | email |
-| phone | checks if the value is a valid phone number | phone |
-| url | checks if the value is a valid url | url |
-| length:{length} | checks if the value’s length is the same as {length} (Ex : length:6) |  |
-| between:{min},{max} | checks if the value is between {min} and {max} (Ex : between:18,30}) |  |
-| min:{min} | checks if the value’s length is more than {min} (Ex : min:6) |  |
-| max:{max} | checks if the value’s length is less than {max} (Ex : max:12) |  |
-| number | checks if the value is a number |  |
-| boolean | checks if the value is boolean |  |
-| string | checks if the value is  a string |  |
-| array | checks if the value is an array |  |
-| object | checks if the value is an object |  |
-| function | checks if the value is a function |  |
-| null | checks if the value is null |  |
-| undefined | checks if the value is undefined |  |
-| in:{item},{item}(...) | checks if the value is in a list (Ex : in:foo,bar) |  |
-| nin:{item},{item}(...) | checks if the value is not in a list (Ex : nin:foo,bar) |  |
-| eq:{value} | checks if the value is equal to {value} (Ex : eq:foo) |  |
-| neq:{value} | checks if the value is not equal to {value}  (Ex : neq:23) |  |
-| gt:{value} | checks if the value is greater than {value} |  |
-| gte:{value} | checks if the value is greater than or equal {value} |  |
-| lt:{value} | checks if the value is less than {value} |  |
-| lte:{value} | checks if the value is less than or equal {value} |  |
-| contains:{item} | checks if the value contains {item} |  |
-| sw:{value} | checks if the value starts with {value} |  |
-| ew:{value} | checks if the value ends with {value} |  |
-| regex:{pattern} | checks if the value matches {pattern} |  |
-| not:{rule} | checks if the value does not match {rule} (Ex : not:number , not:email) |  |
+- ### required
+    
+    checks if the field is not empty
+    
+- ### empty
+    
+    checks if the field is empty
+    
+- ### email
+    
+    checks if the field is a valid email address
+    
+- ### phone
+    
+    checks if the field is a valid phone number
+    
+- ### url
+    
+    checks if the field is a valid url
+    
+- ### length:*{length}*
+    
+    checks if the field’s length is equal to the given length
+    
+- ### min:*{length}*
+    
+    checks if the field’s length is greater than the given length
+    
+- ### max:*{length}*
+    
+    checks if the field’s length is less than the given length
+    
+- ### number
+    
+    checks if the field is a number
+    
+- ### boolean
+    
+    checks if the field is a boolean
+    
+- ### string
+    
+    checks if the field is a string
+    
+- ### array
+    
+    checks if the field is an array
+    
+- ### object
+    
+    checks if the field is an object
+    
+- ### function
+    
+    checks if the field is a function
+    
+- ### null
+    
+    checks if the field is null
+    
+- ### undefined
+    
+    checks if the field is undefined
+    
+- ### in:*{item},{item} (...)*
+    
+    checks if the field is in the given list
+    
+- ### nin:*{item},{item} (...)*
+    
+    checks if the field is not in the given list
+    
+- ### eq:*{value}*
+    
+    checks if the field is equal to the given value
+    
+- ### neq:*{value}*
+    
+    checks if the field is not equal to the given value
+    
+- ### gt:*{value}*
+    
+    checks if the field is greater than the given value
+    
+- ### gte:*{value}*
+    
+    checks if the field is greater than or equal to the given value
+    
+- ### lt:*{value}*
+    
+    checks if the field is less than the given value
+    
+- ### lte:*{value}*
+    
+    checks if the field is less than or equal to the given value
+    
+- ### between:*{min},{max}*
+    
+    checks if the field is between the given values
+    
+- ### contains:*{value}*
+    
+    checks if the field contains the given value
+    
+- ### sw:*{value}*
+    
+    checks if the field starts with the given value
+    
+- ### ew:*{value}*
+    
+    checks if the field ends with the given value
+    
+- ### regex:*{regex}*
+    
+    checks if the field matches the given regex pattern
+    
+- ### not:*{rule}*
+    
+    checks if the field does not match the given rule
