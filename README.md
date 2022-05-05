@@ -1,6 +1,6 @@
 # JavaScript Validator
 
-a validation utility to easily validate your data
+a validation helper to easily validate your data
 
 ---
 
